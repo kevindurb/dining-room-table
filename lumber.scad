@@ -20,3 +20,7 @@ module board(x = 0, y = 0, z = 0) {
 module two_by_six(length = 0) {
   board(x = 5.5, y = 1.5, z = length);
 }
+
+module four_by_four(length = 0) {
+  board(x = 3.5, y = 3.5, z = length);
+}
