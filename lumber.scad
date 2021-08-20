@@ -1,3 +1,7 @@
+TWO_BY = 1.5;
+SIX_BY = 5.5;
+FOUR_BY = 3.5;
+
 module rounded_box(points, radius, height){
     hull(){
         for (p = points){
@@ -5,6 +9,7 @@ module rounded_box(points, radius, height){
         }
     }
 }
+
 module board(x = 0, y = 0, z = 0) {
   radius = 0.25;
   points = [
@@ -17,9 +22,9 @@ module board(x = 0, y = 0, z = 0) {
 }
 
 module two_by_six(length = 0) {
-  board(x = 5.5, y = 1.5, z = length);
+  board(SIX_BY, TWO_BY, length);
 }
 
 module four_by_four(length = 0) {
-  board(x = 3.5, y = 3.5, z = length);
+  board(FOUR_BY, FOUR_BY, length);
 }
