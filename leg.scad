@@ -7,17 +7,29 @@ module leg(length) {
 module bib(table_width, table_length, leg_offset) {
   half_bib_thickness = TWO_BY / 2;
   half_leg_thickness = FOUR_BY / 2;
-  short_side_length = table_width - (2 * FOUR_BY) - 2;
+  short_side_length = table_width - (FOUR_BY * 2) - (leg_offset * 2);
+  long_side_length = table_length - (FOUR_BY * 2) - (leg_offset * 2);
 
   short_sides_translations = [
     [leg_offset + (half_leg_thickness + half_bib_thickness),   leg_offset + FOUR_BY, -TWO_BY],
-    [table_length - (half_leg_thickness - half_bib_thickness), leg_offset + FOUR_BY, -TWO_BY]
+    [table_length - leg_offset - (half_leg_thickness - half_bib_thickness), leg_offset + FOUR_BY, -TWO_BY]
   ];
 
   for (translation = short_sides_translations) {
     translate(translation)
     rotate([0, 90, 90])
       two_by_six(short_side_length);
+  }
+
+  long_sides_translations = [
+    [leg_offset + FOUR_BY, leg_offset + half_bib_thickness, -TWO_BY],
+    [leg_offset + FOUR_BY, table_width - leg_offset - (half_bib_thickness + half_leg_thickness), -TWO_BY]
+  ];
+
+  for (translation = long_sides_translations) {
+    translate(translation)
+    rotate([90, 90, 90])
+      two_by_six(long_side_length);
   }
 }
 
