@@ -8,10 +8,9 @@ module table_top(width = 33, length = 72) {
     two_by_six(width);
 
   width_remainder = width % 5.5;
-  if (width_remainder != 0) {
-    suggestedWidth = width - width_remainder;
-    echo(str("WARNING: Table width isn't an even multiple of board width, Did you mean ", suggestedWidth));
-  }
+  suggestedWidthLow = width - width_remainder;
+  suggestedWidthHigh = width + (5.5 - width_remainder);
+  assert(width_remainder == 0, str("ERROR: Table width isn't an even multiple of board width, Did you mean ", suggestedWidthLow, " or ", suggestedWidthHigh));
 
   board_count = floor(width / 5.5);
 
