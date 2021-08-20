@@ -13,8 +13,7 @@ module board(x = 0, y = 0, z = 0) {
     [0 + radius, y - radius, 0],
     [x - radius, y - radius, 0]
   ];
-  color("#c88f4f")
-    rounded_box(points, radius, z);
+  rounded_box(points, radius, z);
 }
 
 module two_by_six(length = 0) {
